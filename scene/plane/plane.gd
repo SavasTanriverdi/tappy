@@ -21,8 +21,7 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
-	if is_on_floor() == true:
-		die()
+	check_floor_collision()
 
 func fly(delta:float) -> void:
 	velocity.y += _gravity * delta
@@ -31,7 +30,10 @@ func fly(delta:float) -> void:
 		velocity.y = JUMP_POWER
 		animation_player.play("jump")
 
-
 func die() -> void:
 	animated_sprite_2d.stop()
 	set_physics_process(false)
+
+func check_floor_collision() -> void:
+	if is_on_floor():
+		die()
