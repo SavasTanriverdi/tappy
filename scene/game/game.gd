@@ -1,10 +1,16 @@
 extends Node2D
 
 const PIPES = preload("uid://38761cdnq5do")
+var MAIN = load("uid://xw0pohgdq7vc")
 
 @onready var pipes_holder: Node = $PipesHolder
 @onready var upper_point: Marker2D = $UpperPoint
 @onready var lower_point: Marker2D = $LowerPoint
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("exit"):
+		print(event)
+		get_tree().change_scene_to_packed(MAIN)
 
 func _ready() -> void:
 	spawn_pipes()
@@ -22,4 +28,5 @@ func _on_spawn_timer_timeout() -> void:
 
 
 func _on_plane_died() -> void:
-	get_tree().paused = true
+	#get_tree().paused = true
+	pass
