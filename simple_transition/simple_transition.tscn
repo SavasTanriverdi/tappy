@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://47dgd0ooqcc7"]
+
+[ext_resource type="Script" uid="uid://hmpk03whgh1l" path="res://simple_transition/simple_transition.gd" id="1_3meb7"]
+[ext_resource type="Texture2D" uid="uid://bjibyqj06e775" path="res://assets/background/sky.png" id="2_1pkuj"]
+[ext_resource type="LabelSettings" uid="uid://b4vbqa5m04cq" path="res://resources/lava_50.tres" id="3_dpehm"]
+
+[node name="SimpleTransition" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3meb7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1pkuj")
+expand_mode = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = -18.0
+offset_right = 79.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Loading..."
+label_settings = ExtResource("3_dpehm")

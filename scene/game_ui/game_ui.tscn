@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://nubkal0irl47"]
+[gd_scene load_steps=10 format=3 uid="uid://nubkal0irl47"]
 
 [ext_resource type="Script" uid="uid://8odjiy5t4xd0" path="res://scene/game_ui/game_ui.gd" id="1_2umb0"]
 [ext_resource type="LabelSettings" uid="uid://bqsuoyvsp64k6" path="res://resources/lava24.tres" id="1_wm3r6"]
 [ext_resource type="LabelSettings" uid="uid://b4vbqa5m04cq" path="res://resources/lava_50.tres" id="2_2umb0"]
 [ext_resource type="FontFile" uid="uid://be5gfjadt0liw" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="3_4clgm"]
+[ext_resource type="AudioStream" uid="uid://bp821cq4mc67q" path="res://assets/audio/score.wav" id="5_4clgm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bbhxd"]
 font = ExtResource("3_4clgm")
@@ -107,5 +108,8 @@ text = "Space Press"
 label_settings = ExtResource("2_2umb0")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_4clgm")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
