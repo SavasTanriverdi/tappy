@@ -1,11 +1,11 @@
 extends Control
 
-const GAME = preload("uid://d3yxjc7y1eu62")
+@onready var highscore_libel: Label = $MarginContainer/HighscoreLibel
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):
-		print(event)
-		get_tree().change_scene_to_packed(GAME)
+		GameManager.load_game_scene()
 
 func _ready() -> void:
-	pass 
+	get_tree().paused = false
+	highscore_libel.text = "%04d" % ScoreManager.high_score

@@ -1,20 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://xw0pohgdq7vc"]
+[gd_scene load_steps=9 format=3 uid="uid://xw0pohgdq7vc"]
 
 [ext_resource type="Texture2D" uid="uid://bjibyqj06e775" path="res://assets/background/sky.png" id="1_am8c5"]
 [ext_resource type="Script" uid="uid://ckabyvu5h0ex" path="res://scene/main/main.gd" id="1_siuy0"]
-[ext_resource type="LabelSettings" uid="uid://c1lxuguwcu7w" path="res://scene/resources/lava.tres" id="2_6vuhr"]
-[ext_resource type="LabelSettings" uid="uid://bqsuoyvsp64k6" path="res://scene/resources/lava24.tres" id="3_a0c6e"]
-[ext_resource type="FontFile" uid="uid://be5gfjadt0liw" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="4_a0c6e"]
+[ext_resource type="LabelSettings" uid="uid://c1lxuguwcu7w" path="res://resources/lava.tres" id="2_6vuhr"]
+[ext_resource type="LabelSettings" uid="uid://bqsuoyvsp64k6" path="res://resources/lava24.tres" id="3_a0c6e"]
 [ext_resource type="AudioStream" uid="uid://c3wh7u5hy05vb" path="res://assets/audio/Pixel Parade.mp3" id="5_qtsyf"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_qtsyf"]
-font = ExtResource("4_a0c6e")
-font_size = 50
-font_color = Color(0.98039216, 0.9607843, 0.84705883, 1)
-outline_size = 5
-outline_color = Color(0.84705883, 0.68235296, 0.54509807, 1)
-shadow_size = 16
-shadow_color = Color(0.12941177, 0.09411765, 0.105882354, 1)
+[ext_resource type="LabelSettings" uid="uid://b4vbqa5m04cq" path="res://resources/lava_50.tres" id="5_siuy0"]
 
 [sub_resource type="Animation" id="Animation_a0c6e"]
 resource_name = "flash"
@@ -93,7 +84,7 @@ label_settings = ExtResource("3_a0c6e")
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-text = "000"
+text = "0000"
 label_settings = ExtResource("3_a0c6e")
 
 [node name="CenterLabel" type="Label" parent="MarginContainer"]
@@ -102,7 +93,7 @@ size_flags_horizontal = 4
 text = "PRESS SPACE
 TO
 PLAY"
-label_settings = SubResource("LabelSettings_qtsyf")
+label_settings = ExtResource("5_siuy0")
 horizontal_alignment = 1
 vertical_alignment = 1
 

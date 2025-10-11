@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3yxjc7y1eu62"]
+[gd_scene load_steps=6 format=3 uid="uid://d3yxjc7y1eu62"]
 
 [ext_resource type="Texture2D" uid="uid://cans3ib37iggd" path="res://assets/background/rocks_2.png" id="1_8xedm"]
 [ext_resource type="Script" uid="uid://b6wh6nyuw78fa" path="res://scene/game/game.gd" id="1_82mss"]
 [ext_resource type="PackedScene" uid="uid://ce01bdud28on6" path="res://scene/plane/plane.tscn" id="2_pw1yp"]
 [ext_resource type="PackedScene" uid="uid://wt3eywjonhw" path="res://scene/barrier/barrier.tscn" id="3_l2vx3"]
+[ext_resource type="PackedScene" uid="uid://nubkal0irl47" path="res://scene/game_ui/game_ui.tscn" id="5_tr56l"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_82mss")
@@ -20,7 +21,7 @@ position = Vector2(67, 426)
 [node name="PipesHolder" type="Node" parent="."]
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 1.2
+wait_time = 2.0
 autostart = true
 
 [node name="UpperPoint" type="Marker2D" parent="."]
@@ -29,5 +30,8 @@ position = Vector2(502, 266)
 [node name="LowerPoint" type="Marker2D" parent="."]
 position = Vector2(502, 606)
 
-[connection signal="on_plane_died" from="Plane" to="." method="_on_plane_died"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameUI" parent="CanvasLayer" instance=ExtResource("5_tr56l")]
+
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

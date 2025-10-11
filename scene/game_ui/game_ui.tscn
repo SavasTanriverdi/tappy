@@ -1,0 +1,111 @@
+[gd_scene load_steps=9 format=3 uid="uid://nubkal0irl47"]
+
+[ext_resource type="Script" uid="uid://8odjiy5t4xd0" path="res://scene/game_ui/game_ui.gd" id="1_2umb0"]
+[ext_resource type="LabelSettings" uid="uid://bqsuoyvsp64k6" path="res://resources/lava24.tres" id="1_wm3r6"]
+[ext_resource type="LabelSettings" uid="uid://b4vbqa5m04cq" path="res://resources/lava_50.tres" id="2_2umb0"]
+[ext_resource type="FontFile" uid="uid://be5gfjadt0liw" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="3_4clgm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bbhxd"]
+font = ExtResource("3_4clgm")
+font_size = 61
+font_color = Color(0.9490196, 0.67058825, 0.21568628, 1)
+outline_size = 5
+outline_color = Color(0.12941177, 0.09411765, 0.105882354, 1)
+shadow_size = 21
+shadow_color = Color(0.019607844, 0.12156863, 0.22352941, 1)
+
+[sub_resource type="Animation" id="Animation_4clgm"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_2umb0"]
+resource_name = "press_space_scale"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PressSpaceLabel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bbhxd"]
+_data = {
+&"RESET": SubResource("Animation_4clgm"),
+&"press_space_scale": SubResource("Animation_2umb0")
+}
+
+[node name="GameUI" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2umb0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_right = 58.0
+offset_bottom = 37.0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "0000"
+label_settings = ExtResource("1_wm3r6")
+
+[node name="GameOverLabel" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -109.0
+offset_right = 234.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Over"
+label_settings = SubResource("LabelSettings_bbhxd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_bbhxd")
+}
+autoplay = "press_space_scale"
+
+[node name="PressSpaceLabel" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 95.0
+offset_top = 401.0
+offset_right = 385.0
+offset_bottom = 452.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(145, 25.5)
+size_flags_horizontal = 4
+text = "Space Press"
+label_settings = ExtResource("2_2umb0")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
