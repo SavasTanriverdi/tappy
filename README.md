@@ -4,7 +4,8 @@ Tappy is a fast-paced arcade game built with the Godot Engine. Pilot a plucky pl
 
 ## Preview
 
-<!-- Replace the placeholder below with the actual GIF once it is available. -->
+<img width="768" height="1344" alt="tappy" src="https://github.com/user-attachments/assets/055755b5-2725-400c-b36b-402fa283a709" />
+
 ![Gameplay Preview](docs/media/tappy-gameplay.gif)
 
 ## Features
